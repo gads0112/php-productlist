@@ -1,0 +1,25 @@
+<!-- Toolbar -->
+<div>
+  <div class="toolbar" role="banner">
+    <span>Products List</span>
+    <div class="spacer"></div>
+
+  </div>
+  <div class="content">
+    <a (click)="homeFun()" class= "link" href="#">home</a>
+    <span  *ngIf="!home">
+      <a class= "link" href="#">{{productName}}</a>
+    </span>
+   
+  </div>
+    
+
+  <div *ngIf="home">
+    <app-product-list (seeListData)="productDetails($event)" ></app-product-list>
+  </div>
+  <div *ngIf="!home">
+    <app-product-details [productId]="productId" ></app-product-details>
+  </div>
+  
+
+</div>

@@ -1,0 +1,9 @@
+<div class="content">
+    <div class="card" *ngFor="let item of products; let i = index">
+      <img [src]="item.product_image"  style="width:100%">
+      <h1>{{item.title}}</h1>
+      <p class="price">${{item.price}}</p>
+      <p>{{item.description}}</p>
+      <p><a (click)="seeList(item)">See Details</a></p>
+    </div>
+</div>
