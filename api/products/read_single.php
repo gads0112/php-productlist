@@ -14,7 +14,7 @@
 
   // Get ID
   $product->id = isset($_GET['id']) ? $_GET['id'] : die();
-   echo $product->id;
+
   // Get $product
   $product->read_single();
 
