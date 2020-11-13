@@ -10,7 +10,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
+    background-color: #d21957;
     color: white;
     font-weight: 600;
   }
@@ -24,5 +24,10 @@
     }
     .content .link{
         margin-left: 10px;
+    }
+    .product
+    {
+      
+      margin-left:700px;
     }
   

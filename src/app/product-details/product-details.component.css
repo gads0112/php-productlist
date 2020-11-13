@@ -32,7 +32,7 @@
   button{
     border: none;
     outline: 0;
-    padding: 12px;
+    padding: 5px;
     color: white;
     background-color: #000;
     text-align: center;
@@ -40,6 +40,7 @@
     font-size: 18px;
   }
   ol li{
+    height: 30px;
     padding: 10px;
     border: 1px solid #e2e2e2;
     margin: 12px;

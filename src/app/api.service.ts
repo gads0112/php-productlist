@@ -15,7 +15,7 @@ export class ApiService {
     return this.httpClient.get(`http://localhost/php-productlist/php/api/products/read_single?id=${id}`);
   }
   public deleteComments(id: number){
-    return this.httpClient.delete(``);
+    return this.httpClient.get(`http://localhost/php-productlist/php/api/comments/delete.php?id=${id}`);
   }
     public createComments(data){
       return this.httpClient.post(`http://localhost/php-productlist/php/api/comments/create`, data);

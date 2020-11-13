@@ -1,6 +1,6 @@
 <div class="content">
     <div class="card" *ngFor="let item of products; let i = index">
-      <img [src]="item.product_image"  style="width:100%">
+      <img [src]="item.product_image"  style="width:450px;height:300px;">
       <h1>{{item.title}}</h1>
       <p class="price">${{item.price}}</p>
       <p>{{item.description}}</p>

@@ -56,8 +56,8 @@
             extract($row1);
       
             $comments_item = array(
-              'product_comments' => $product_comments
-              
+              'product_comments' => $product_comments,
+              'id'=>$id
               
             );
       

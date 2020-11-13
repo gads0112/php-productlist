@@ -8,16 +8,17 @@
     <ol>
         <li *ngFor="let item of data.comments; let i = index">
            {{item.product_comments}}
+           <button style="float:right" (click)="delete(item.id)">Delete </button>
         </li>
     </ol>
 </div>
 <div>
     <div>
-        <textarea  rows="4" cols="50" name="comment" [(ngModel)]="text"  >
+        <textarea style="margin-left: 18px;" rows="4" cols="50" name="comment" [(ngModel)]="text"  >
         
         </textarea>
     </div>
-    <button (click)="submit()">submit </button>
+    <button style="margin-left: 18px;" (click)="submit()">submit </button>
 </div>
 
 </div>

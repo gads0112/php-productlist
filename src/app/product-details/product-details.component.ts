@@ -44,5 +44,19 @@ product_comments:this.text
     }
 
   }
+  delete(id){
+
+      this.apiService.deleteComments(id).subscribe((res)=>{
+       
+          console.log(res)
+          this.apiService.getSingleProducts(this.productId).subscribe((res)=>{
+            console.log(res)
+            this.data=res
+           })
+        
+       })
+    
+
+  }
   
 }
