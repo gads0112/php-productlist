@@ -1,7 +1,7 @@
 <?php 
   class Database {
     // DB Parameters
-    private $host = 'mysql.wiu.edu';
+    private $host = 'mysql.wiu.edu:2520';
     private $db_name = 'productlist';
     private $username = 'root';
     private $password = '7dib2vug';
