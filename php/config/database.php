@@ -1,10 +1,10 @@
 <?php 
   class Database {
     // DB Parameters
-    private $host = 'localhost';
+    private $host = 'mysql.wiu.edu';
     private $db_name = 'productlist';
     private $username = 'root';
-    private $password = '';
+    private $password = '7dib2vug';
     private $conn;
 
     // DB Connect
