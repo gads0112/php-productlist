@@ -1,4 +1,4 @@
-<?php 
+<?php
   // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
@@ -30,3 +30,4 @@
 
   // Make JSON
   print_r(json_encode($product_item));
+?>

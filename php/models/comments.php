@@ -1,7 +1,7 @@
 <?php
   class Comments {
-    // DB 
-    private $conn;
+    // DB
+    public $conn;
     private $table = 'comments';
 
     // Properties
@@ -17,57 +17,38 @@
   // Create Post
     public function create() {
     // Create query
-    $query = 'INSERT INTO ' . $this->table . ' SET product_comments = :product_comments, product_id = :product_id';
+     $query ="INSERT INTO comments(product_comments,product_id)  VALUES('".$this->product_comments."',".$this->product_id.")";
+
 
     // Prepare statement
-    $stmt = $this->conn->prepare($query);
+    $stmt = mysql_query($query, $this->conn);
 
-    // Clean data
-    $this->product_comments = htmlspecialchars(strip_tags($this->product_comments));
-    $this->product_id = htmlspecialchars(strip_tags($this->product_id));
-    
-
-    // Bind data
-    $stmt->bindParam(':product_comments', $this->product_comments);
-    $stmt->bindParam(':product_id', $this->product_id);
-    
-
-    // Execute query
-    if($stmt->execute()) {
-      return true;
+    echo $stnt;
+   if ($stmt) {
+        return true;
 }
-
 // Print error if something goes wrong
 printf("Error: %s.\n", $stmt->error);
-
 return false;
 }
 // Delete Comments
 public function delete() {
   // Create query
-  $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
-
+  $query = 'DELETE FROM ' . $this->table . ' WHERE id = '. $this->id . '';
+     echo $this->conn;
   // Prepare Statement
-  $stmt = $this->conn->prepare($query);
-
-  // clean data
-  $this->id = htmlspecialchars(strip_tags($this->id));
-
-  // Bind Data
-  $stmt-> bindParam(':id', $this->id);
+  $stmt = mysql_query($query, $this->conn);
 
   // Execute query
-  if($stmt->execute()) {
+  if($stmt) {
     return true;
   }
 
   // Print error if something goes wrong
   printf("Error: $s.\n", $stmt->error);
-
   return false;
   }
 
-  
 
-  
   }
+  ?>

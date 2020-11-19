@@ -1,4 +1,4 @@
-<?php 
+<?php
   class Product {
 
     private $conn;
@@ -8,7 +8,7 @@
     public $description;
     public $product_image;
     public $price;
-    
+
 
     // Constructor with DB
     public function __construct($db) {
@@ -19,12 +19,8 @@
     public function read() {
       // Create query
       $query = 'SELECT * FROM '. $this->table.'';
-      
-      // Prepare statement
-      $stmt = $this->conn->prepare($query);
 
-      // Execute query
-      $stmt->execute();
+      $stmt = mysql_query($query,$this->conn);
 
       return $stmt;
     }
@@ -36,47 +32,46 @@
           $query1 = 'SELECT * FROM  comments WHERE product_id = '.$this->id.' ';
 
           // Prepare statement
-          $stmt = $this->conn->prepare($query);
-          $stmt1 = $this->conn->prepare($query1);
+          $stmt = mysql_query($query,$this->conn);
+          $stmt1 = mysql_query($query1,$this->conn);
 
-         
 
-          // Execute query
-          $stmt->execute();
-          $stmt1->execute();
 
-          $row = $stmt->fetch(PDO::FETCH_ASSOC);
-          
-          
+
+          $row = mysql_fetch_assoc($stmt);
+
+
           $comments_arr = array();
-    
 
-          while($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)) {
-              
+
+          while($row1 = mysql_fetch_assoc($stmt1)) {
+
             extract($row1);
-      
+
             $comments_item = array(
               'product_comments' => $product_comments,
               'id'=>$id
-              
+
             );
-      
+
             // Push to "data"
             array_push($comments_arr, $comments_item);
-            
+
           }
           // Set properties
-          
+
           $this->title = $row['title'];
           $this->description = $row['description'];
           $this->product_image = $row['product_image'];
           $this->price = $row['price'];
           $this->comments =$comments_arr;
-          
+
     }
 
-    
 
-    
-    
+
+
+
   }
+?>
+                         

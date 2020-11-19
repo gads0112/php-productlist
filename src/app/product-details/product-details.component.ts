@@ -27,7 +27,7 @@ export class ProductDetailsComponent implements OnInit {
     {
       
 let data ={
-product_id : this.productId,
+product_id : Number(this.productId),
 product_comments:this.text
 }
       this.apiService.createComments(data).subscribe((res)=>{

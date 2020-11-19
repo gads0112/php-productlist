@@ -1,4 +1,4 @@
-<?php 
+<?php
   // Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
@@ -16,15 +16,15 @@
   // product query
   $result = $product->read();
   // Get row count
-  $num = $result->rowCount();
+  $num = mysql_num_rows($result);
 
   // Check if any products
   if($num > 0) {
     // product array
     $product_arr = array();
-    
 
-    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+
+    while($row = mysql_fetch_assoc($result)) {
       extract($row);
 
       $product_item = array(
@@ -33,18 +33,18 @@
         'description' => $description,
         'product_image' => $product_image,
         'price' => $price
-        
+
       );
 
       // Push to "data"
       array_push($product_arr, $product_item);
-      
+
     }
 
     // Turn to JSON & output
     echo json_encode($product_arr);
 
-  } else 
+  } else
   {
     // No products
     echo json_encode(

@@ -1,27 +1,23 @@
 <?php
   // Headers
-  header('Access-Control-Allow-Origin: *');
-  header('Content-Type: application/json');
-  header('Access-Control-Allow-Methods: POST');
-  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization,X-Requested-With');
 
   include_once '../../config/database.php';
   include_once '../../models/comments.php';
   //  DB connect
-  $database = new database();
+  $database = new Database();
   $db = $database->connect();
 
   //  comments object
-  $comments = new Comments($db);
+  $comment = new Comments($db);
 
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
 
-  $comments->product_comments = $data->product_comments;
-  $comments->product_id = $data->product_id;
+  $comment->product_comments = $data->product_comments;
+  $comment->product_id = $data->product_id;
 
   // Create comments
-  if($comments->create()) {
+  if($comment->create()) {
     echo json_encode(
       array('message' => 'comments Created')
     );
