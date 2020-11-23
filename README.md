@@ -1,7 +1,4 @@
 # php-productlist
  Product List Application 
  
-https://prnt.sc/vieuxo
-
-
-https://prnt.sc/viewsh
+http://www.wiu.edu/users/pvskc100/productlist/ 
